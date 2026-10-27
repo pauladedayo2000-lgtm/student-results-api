@@ -1,0 +1,401 @@
+{
+  "info": {
+    "name": "Student Results API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{username}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{password}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "username",
+      "value": "teacher"
+    },
+    {
+      "key": "password",
+      "value": "change-me-123"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Add student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/students",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "students"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"Amina Yusuf\",\n  \"student_code\": \"STU-001\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "2. Add subject",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/subjects",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "subjects"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Mathematics\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "3. Add assessment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/assessments",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "assessments"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject_id\": 1,\n  \"name\": \"Midterm Test\",\n  \"max_score\": 100\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "4. Add score",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/scores",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "scores"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"student_id\": 1,\n  \"assessment_id\": 1,\n  \"value\": 78.5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "5. Update score",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/scores/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "scores",
+            "1"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"value\": 82\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "6. Get student results",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/students/1/results",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "students",
+            "1",
+            "results"
+          ]
+        },
+        "description": ""
+      }
+    },
+    {
+      "name": "7. Student average",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/students/1/average",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "students",
+            "1",
+            "average"
+          ]
+        },
+        "description": ""
+      }
+    },
+    {
+      "name": "8. Subject average",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/subjects/1/average",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "subjects",
+            "1",
+            "average"
+          ]
+        },
+        "description": ""
+      }
+    },
+    {
+      "name": "9. Assessment average",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/assessments/1/average",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "assessments",
+            "1",
+            "average"
+          ]
+        },
+        "description": ""
+      }
+    },
+    {
+      "name": "10. List students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/students",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "students"
+          ]
+        },
+        "description": ""
+      }
+    },
+    {
+      "name": "11. List subjects",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/subjects",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "subjects"
+          ]
+        },
+        "description": ""
+      }
+    },
+    {
+      "name": "12. List assessments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/assessments",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "assessments"
+          ]
+        },
+        "description": ""
+      }
+    },
+    {
+      "name": "ERROR: score above maximum",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/scores",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "scores"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"student_id\": 1,\n  \"assessment_id\": 1,\n  \"value\": 150\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "ERROR: invalid student body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/students",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "students"
+          ]
+        },
+        "description": "",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"A\",\n  \"student_code\": \"bad code\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "ERROR: student not found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/students/999/results",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "students",
+            "999",
+            "results"
+          ]
+        },
+        "description": ""
+      }
+    }
+  ]
+}
